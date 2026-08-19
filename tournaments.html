@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale="1.0">
+
+    <meta
+        name="description"
+        content="Tournaments of UTAR Esport Club.">
+
+    <!--Favicon-->
+
+   <link
+        rel="icon"
+        href="assets/favicon.ico"
+        sizes="any">
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="assets/favicon-16.png">
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="assets/favicon-32.png">
+
+    <link
+        rel="icon"
+        type="image/png"
+        sizes="512x512"
+        href="assets/favicon-512.png">
+
+    <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="assets/apple-touch-icon.png">
+
+    <title>Tournaments - UTAR Esport Club</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+
+    <link
+        rel="stylesheet"
+        href="css/tournament.css">
+
+</head>
+
+<body>
+    <!-- COOKIE -->
+
+<div
+    class="topbar"
+    id="cookieNotice">
+
+    <div class="container-xl">
+
+        <span>
+            This site uses cookies and browser storage
+            to improve your experience.
+        </span>
+
+        <div class="cookie-buttons">
+
+            <button id="cookieAccept">
+                Got it
+            </button>
+
+            <button id="cookieDismiss">
+                Dismiss
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- NAVIGATION -->
+
+<header class="site-header">
+
+    <div class="container-xl nav-row">
+
+
+        <a
+            href="index.html"
+            class="brand">
+
+            <img
+                src="assets/logo.png"
+                alt="UTAR Esport Club Logo"
+                class="club-logo">
+
+            <span>
+                UTAR ESPORT CLUB
+            </span>
+
+        </a>
+
+
+        <span
+            class="welcome-pill"
+            id="welcomePill">
+        </span>
+
+
+        <button
+            class="nav-toggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a 
+                    href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="teams.html">
+                    Teams
+                </a>
+            </li>
+
+            <li>
+                <a 
+                    href="players.html">
+                    Players
+                </a>
+            </li>
+
+            <li>
+                <a 
+                    href="tournaments.html"
+                    class="active">
+                    Tournaments
+                </a>
+            </li>
+
+            <li>
+                <a 
+                    href="events.html">
+                    Events
+                </a>
+            </li>
+
+            <li>
+                <a 
+                    href="join-us.html">
+                    Join Us
+                </a>
+            </li>
+
+            <li>
+                <a 
+                    href="faq.html">
+                    FAQ
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<hr class="split-rule">
+
+<!--HERO-->
+
+<section class="hero tournaments-hero">
+
+    <div class="container-xl hero-inner">
+
+        <span class="eyebrow">
+            Competitive Arena
+        </span>
+
+
+        <h1>
+
+            OUR
+
+            <br>
+
+            <span class="accent">
+                TOURNAMENTS.
+            </span>
+
+        </h1>
+
+
+        <p class="lede">
+
+            Discover upcoming competitive,
+            following ongoing tournaments.
+        
+        </p>
+
+    </div>
+
+</section>
+
+<!-- TOURNAMENT -->
+
+<section class="tournament-section">
+
+    <div class="container-xl">
+
+
+        <div class="section-head">
+
+            <div>
+
+                <span class="eyebrow">
+                    Tournaments Centre
+                </span>
+
+                <h2>
+                    Explore Tournaments
+                </h2>
+
+            </div>
+
+
+            <span
+                class="tournament-count"
+                id="tournamentCount">
+
+                5 TOURNAMENTS
+
+            </span>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="tournament-search">
+
+            <span>
+                /
+            </span>
+
+            <input
+                type="text"
+                id="tournamentSearch"
+                placeholder="Search tournament...">
+
+        </div>
+
+         <!-- FILTER -->
+
+        <div class="filter-row">
+
+
+            <button
+                class="chip tournament-filter is-active"
+                data-status="all">
+
+                ALL
+
+            </button>
+
+
+            <button
+                class="chip tournament-filter"
+                data-status="Upcoming">
+
+                UPCOMING
+
+            </button>
+
+
+            <button
+                class="chip tournament-filter"
+                data-status="Ongoing">
+
+                ONGOING
+
+            </button>
+
+
+            <button
+                class="chip tournament-filter"
+                data-status="Completed">
+
+                COMPLETED
+
+            </button>
+
+        </div>
+
+
+        <!-- TOURNAMENT CARDS -->
+
+        <div
+            class="tournaments-grid"
+            id="tournamentsGrid">
+        </div>
+
+        <!--NO RESULT -->
+        <div
+            class="tournament-empty"
+            id="tournamentEmpty">
+
+            <h3>
+                No tournament found.
+            </h3>
+
+            <p>
+                Try another tournament name.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TOURNAMENT MODAL -->
+
+<div
+    class="tournament-modal-backdrop"
+    id="tournamentModal">
+
+
+    <div class="tournament-modal">
+
+        <button
+            class="tournament-modal-close"
+            id="modalClose">
+        
+            CLOSE
+
+        </button>
+
+        <span
+            class="eyebrow"
+            id="modalStatus">
+        
+            UPCOMING
+
+        </span>
+
+        <h2
+            id="modalTournamentName">
+        </h2>
+
+        <p
+            class="modal-description"
+            id="modalDescription">
+        </p>
+    
+<!-- Tournament Information -->
+
+<div class="modal-info-grid">
+
+     <div>
+        <span>
+            GAME
+        </span>
+
+        <strong
+            id="modalGame">
+        </strong>
+
+    </div>
+
+    <div>
+        <span>
+            DATE
+        </span>
+
+        <strong
+            id="modalDate">
+        </strong>
+    </div>
+
+    <div>
+        <span>
+            PARTICIPANTS
+        </span>
+
+        <strong
+            id="modalParticipants">
+        </strong>
+    </div>
+
+    <div>
+        <span>
+            MATCH FORMAT
+        </span>
+
+        <strong
+            id="modalFormat">
+        </strong>
+    </div>
+
+    <div>
+        <span>
+                PRIZE
+        </span>
+
+        <strong
+            id="modalPrize">
+        </strong>
+
+    </div>
+
+        <div>
+            <span>
+                STATUS
+            </span>
+
+            <strong
+                id="modalStatusDetail">
+            </strong>
+        </div>
+
+    </div>
+
+    <div class="modal-actions">
+
+        <button
+            class="btn btn-outline"
+            id="modalCloseButton">
+
+            CLOSE
+            
+        </button>
+
+    </div>
+
+    </div> <!-- closes tournament-modal -->
+
+    </div> <!-- closes tournament-modal-backdrop -->
+
+     <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+     <footer class="footer">
+
+        <div class="container-xl footer-grid">
+
+             <!-- =================================================
+             CLUB
+        ================================================== -->
+
+
+            <div>
+
+                <h4>
+                    UTAR ESPORT CLUB
+                </h4>
+
+                <p
+                    style="
+                        color:var(--text-lo);
+                        max-width:34ch;
+                        font-size:0.9rem;
+                    ">
+
+                    The university's home for competitive,
+                    casual, and creative gaming —
+                    every player, every platform.
+
+                </p>
+
+        </div>
+
+        <!-- EXPLORE -->
+
+        <div>
+             <h4>
+                EXPLORE
+            </h4>
+
+            <ul>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="teams.html">
+                        Teams
+                    </a>
+                </li>
+
+                <li>
+                    <a href="players.html">
+                        Players
+                    </a>
+                </li>
+
+                <li>
+                    <a href="tournaments.html">
+                        Tournaments
+                    </a>
+                </li>
+
+                <li>
+                    <a href="events.html">
+                        Events
+                    </a>
+                </li>
+
+                <li>
+                    <a href="join-us.html">
+                        Join Us
+                    </a>
+                </li>
+
+                <li>
+                    <a href="faq.html">
+                        FAQ
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- =================================================
+             CLUB CONTACT
+        ================================================== -->
+
+        <div>
+
+            <h4>
+                CLUB
+            </h4>
+
+            <ul>
+
+                <li>
+                    utaresports@gmail.com
+                </li>
+
+                <li>
+                    ICT Faculty, UTAR
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FOLLOW US
+        ================================================== -->
+
+<div>
+
+    <h4>
+        FOLLOW US
+    </h4>
+
+
+    <div class="social-row">
+
+
+        <!-- Instagram -->
+
+        <a
+            class="social-icon"
+            href="https://www.instagram.com/utar.esports/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Instagram"
+            aria-label="Instagram">
+
+            <svg
+                viewBox="0 0 24 24"
+                stroke-width="1.6">
+
+                <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="5">
+                </rect>
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="4">
+                </circle>
+
+                <circle
+                    cx="17.2"
+                    cy="6.8"
+                    r="1"
+                    fill="currentColor"
+                    stroke="none">
+                </circle>
+
+            </svg>
+
+        </a>
+
+
+
+        <!-- X / Twitter -->
+
+        <a
+            class="social-icon"
+            href="https://x.com/utaresports"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="X"
+            aria-label="X">
+
+            <svg
+                viewBox="0 0 24 24"
+                stroke-width="1.6">
+
+                <path
+                    d="m4 4 16 16M20 4 4 20">
+                </path>
+
+            </svg>
+
+        </a>
+
+
+    </div>
+
+</div>
+
+
+    
+
+
+
+    <!-- =====================================================
+         FOOTER BOTTOM
+    ====================================================== -->
+
+    <div class="container-xl bottom">
+
+
+        <span>
+
+            © 2026 UTAR ESPORT CLUB
+
+        </span>
+
+
+        <span>
+
+            UCCD2323 Front-End Web Development
+
+        </span>
+
+
+    </div>
+
+
+</footer>
+
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<script
+    src="https://code.jquery.com/jquery-3.7.1.min.js">
+</script>
+
+<script src="js/script.js"></script>
+<script src="js/tournaments.js"></script>
+
+</body>
+
+</html>
+
