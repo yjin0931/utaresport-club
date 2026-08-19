@@ -1,0 +1,649 @@
+/* =================================================
+    TOURNAMENT PAGE         
+================================================== */
+
+/* TOURNAMENT COUNTER */
+.tournament-count {
+
+    color: var(--text-lo);
+
+    border:
+        1px solid var(--ink-700);
+
+    border-radius: 20px;
+
+    padding: 6px 12px;
+
+    font-family: var(--font-mono);
+
+    font-size: 0.7rem;
+
+}
+
+/* TOURNAMENT SEARCH */
+.tournament-search {
+
+    width: min(
+        650px,
+        100%
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--ink-800);
+
+    border:
+        1px solid var(--ink-700);
+
+    border-radius: 8px;
+
+    padding: 11px 14px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.tournament-search span {
+
+    color: var(--amber);
+
+    font-family: var(--font-mono);
+
+}
+
+
+.tournament-search input {
+
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--text-hi);
+
+    font-size: 0.9rem;
+
+}
+
+
+.tournament-search input::placeholder {
+
+    color: var(--text-lo);
+
+}
+
+
+.tournaments-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+
+}
+
+
+.tournament-card {
+
+    background: var(--ink-800);
+
+    border:
+        1px solid var(--ink-700);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    transition:
+        transform .15s ease,
+        border-color .15s ease;
+
+}
+
+
+.tournament-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--blue);
+
+}
+
+
+.tournament-card-top {
+
+    height: 190px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+/* VALORANT */
+
+.tournament-card[data-game="Valorant"]
+.tournament-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #18244b,
+            #3e7bfa
+        );
+}
+
+
+/* EA FC */
+
+.tournament-card[data-game="EA FC"]
+.tournament-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #15332c,
+            #258b72
+        );
+}
+
+
+/* HONOR OF KINGS */
+
+.tournament-card[data-game="Honor of Kings"]
+.tournament-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #182d48,
+            #3779b8
+        );
+}
+
+
+/* LEAGUE OF LEGENDS */
+
+.tournament-card[data-game="League of Legends"]
+.tournament-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #332716,
+            #9e6d29
+        );
+}
+
+
+/* TEKKEN 8 */
+
+.tournament-card[data-game="TEKKEN 8"]
+.tournament-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #3a2020,
+            #a33e3e
+        );
+}
+
+.tournament-game{
+
+    font-family: var(--font-display);
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05cm;
+
+}
+
+.tournament-game-image {
+
+    width: 75%;
+
+    height: 130px;
+
+    object-fit: contain;
+
+    display: block;
+
+}
+
+.tournament-status{
+    
+    position: absolute;
+
+    top: 12px;
+
+    left: 12px;
+
+    padding: 4px 10px;
+
+    border-radius: 20px;
+
+    background: var(--ink-900);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.64rem;
+
+    text-transform: uppercase;
+}
+
+.tournament-status.upcoming{
+
+    color: var(--blue);
+
+    border: 1px solid var(--blue);
+
+}
+
+.tournament-status.completed{
+
+    color: var(--text-lo);
+
+    border: 1px solid var(--text-lo);
+
+}
+
+.tournament-card-body{
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 18px;
+
+}
+
+.tournament-card-body h3{
+
+    font-size: 1.8rem;
+
+    margin-bottom: 5px;
+
+}
+
+.tournament-date{
+    
+    color: var(--text-lo);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.72rem;
+
+    margin-bottom: 15px;
+
+}
+
+.game-line{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    border-top: 1px solid var(--ink-700);
+
+    border-bottom: 1px solid var(--ink-700);
+
+    padding: 10px 0;
+
+    margin-bottom: 14px;
+
+}
+
+.game-line span{
+
+    color: var(--text-lo);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.62rem;
+
+}
+
+.game-line strong{
+    
+    font-size: 0.8rem;
+
+    text-align: right;
+
+}
+
+.tournament-meta{
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.tournament-meta div{
+    
+    border-top: 1px solid var(--ink-700);
+
+    padding-top: 9px;
+
+}
+
+.tournament-meta span{
+
+    display: block;
+
+    color: var(--text-lo);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.6rem;
+
+    margin-bottom: 3px;
+
+}
+
+.tournament-meta strong{
+
+    display: block;
+
+    font-size: 0.8rem;
+
+}
+
+.tournament-view{
+
+    width: 100%;
+
+    margin-top: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background: transparent;
+
+    border: 1px solid var(--ink-700);
+
+    border-radius: 7px;
+
+    color: var(--text-hi);
+
+    padding: 11px 12px;
+
+    font-family: var(--font-display);
+
+    font-weight: 700;
+
+    font-size: 0.82rem;
+
+    cursor: pointer;
+
+}
+
+.tournmanet-view:hover{
+
+    border-color: var(--amber);
+
+    color: var(--amber);
+
+}
+
+.tournament-empty{
+
+    display: none;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+}
+
+.tournament-modal-backdrop {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    padding: 20px;
+
+    z-index: 2000;
+}
+
+.tournament-modal-backdrop.is-open {
+    display: flex;
+}
+
+
+.tournament-modal {
+
+    width: min(
+        780px,
+        100%
+    );
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--ink-850);
+
+    border: 1px solid var(--ink-700);
+
+    border-radius: var(--radius);
+
+    padding: 28px;
+
+    position: relative;
+
+}
+
+tournament-modal-close {
+
+    position: absolute;
+
+    right: 25px;
+
+    top: 25px;
+
+    background: transparent;
+
+    border:
+        1px solid var(--ink-700);
+
+    color: var(--text-hi);
+
+    border-radius: 6px;
+
+    padding: 8px 12px;
+
+    cursor: pointer;
+
+}
+
+
+.tournament-modal-close:hover{
+
+    color: var(--amber);
+
+    border-color: var(--amber);
+
+}
+
+.modal-status{
+
+    display: inline-block;
+
+    color: var(--blue);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 0.1em;
+
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+
+}
+
+.tournament-modal h2{
+
+    margin-bottom: 10px;
+
+    padding-right: 120px;
+
+}
+
+.modal-description {
+
+    color: var(--text-lo);
+
+    max-width: 60ch;
+
+}
+
+.modal-info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+
+.modal-info-grid div {
+
+    background: var(--ink-900);
+
+    border:
+        1px solid var(--ink-700);
+
+    padding: 13px;
+
+    border-radius: 7px;
+
+}
+
+
+.modal-info-grid span {
+
+    display: block;
+
+    color: var(--text-lo);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.6rem;
+
+    margin-bottom: 4px;
+
+}
+
+
+.modal-info-grid strong {
+
+    font-size: 0.82rem;
+
+}
+
+
+.modal-actions {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+
+}
+
+
+@media (max-width: 900px) {
+
+    .tournaments-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+    }
+
+}
+
+/* ========================== 
+MOBILE 
+========================== */
+@media (max-width: 600px) {
+
+    .tournaments-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .modal-info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .modal-actions {
+
+        flex-direction: column;
+
+    }
+
+
+    .modal-actions .btn {
+
+        width: 100%;
+
+    }
+
+}

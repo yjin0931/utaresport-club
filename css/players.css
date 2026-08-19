@@ -1,0 +1,934 @@
+/* =========================================================
+   PLAYERS PAGE
+========================================================= */
+
+.player-count {
+
+    color: var(--text-lo);
+
+    border:
+        1px solid var(--ink-700);
+
+    border-radius: 20px;
+
+    padding: 6px 12px;
+
+    font-family: var(--font-mono);
+
+    font-size: 0.7rem;
+
+}
+
+
+.player-search {
+
+    width: min(
+        650px,
+        100%
+    );
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    background: var(--ink-800);
+
+    border:
+        1px solid var(--ink-700);
+
+    border-radius: 8px;
+
+    padding: 11px 14px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.player-search span {
+
+    color: var(--amber);
+
+    font-family: var(--font-mono);
+
+}
+
+
+.player-search input {
+
+    width: 100%;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: var(--text-hi);
+
+}
+
+
+.players-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0, 1fr)
+        );
+
+    gap: 18px;
+
+}
+
+
+.player-card {
+
+    background: var(--ink-800);
+
+    border:
+        1px solid var(--ink-700);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    transition:
+        transform .15s ease,
+        border-color .15s ease;
+
+}
+
+
+.player-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: var(--blue);
+
+}
+
+
+.player-card-top {
+
+    height: 145px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.player-card[data-game="Valorant"]
+.player-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #18244b,
+            #3e7bfa
+        );
+
+}
+
+
+.player-card[data-game="Honor of Kings"]
+.player-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #182d48,
+            #3779b8
+        );
+
+}
+
+
+.player-card[data-game="League of Legends"]
+.player-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #332716,
+            #9e6d29
+        );
+
+}
+
+
+.player-card[data-game="EA FC"]
+.player-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #15332c,
+            #258b72
+        );
+
+}
+
+
+.player-card[data-game="Tekken 8"]
+.player-card-top {
+
+    background:
+        linear-gradient(
+            135deg,
+            #3a2020,
+            #a33e3e
+        );
+
+}
+
+
+.player-game-label {
+
+    position: absolute;
+
+    top: 12px;
+
+    left: 12px;
+
+    background:
+        rgba(
+            9,
+            11,
+            16,
+            .78
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            .15
+        );
+
+    border-radius: 20px;
+
+    padding: 5px 9px;
+
+    font-family: var(--font-mono);
+
+    font-size: 0.6rem;
+
+}
+
+
+.player-captain-label {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+
+    color: var(--amber);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.58rem;
+
+}
+
+
+.player-avatar {
+
+    width: 75px;
+
+    height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            9,
+            11,
+            16,
+            .8
+        );
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            .5
+        );
+
+    font-family: var(--font-display);
+
+    font-size: 1.2rem;
+
+}
+
+
+.player-content {
+
+    padding: 15px;
+
+}
+
+
+.player-role {
+
+    color: var(--amber);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.6rem;
+
+    text-transform: uppercase;
+
+}
+
+
+.player-name {
+
+    font-family: var(--font-display);
+
+    font-size: 1rem;
+
+    margin:
+        7px 0 3px;
+
+}
+
+
+.player-team {
+
+    color: var(--text-lo);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.65rem;
+
+}
+
+
+.player-card-footer {
+
+    margin-top: 15px;
+
+    padding-top: 10px;
+
+    border-top:
+        1px solid var(--ink-700);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+.player-status {
+
+    color: var(--green);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.58rem;
+
+}
+
+
+.player-view {
+
+    color: var(--text-hi);
+
+    background: transparent;
+
+    border: 0;
+
+    font-size: 0.62rem;
+
+    font-weight: bold;
+
+}
+
+
+.players-empty {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 60px;
+
+}
+
+
+.player-modal-backdrop {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            .78
+        );
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 2000;
+
+}
+
+
+.player-modal-backdrop.is-open {
+
+    display: flex;
+
+}
+
+
+.player-modal {
+
+    width: min(
+        700px,
+        100%
+    );
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: var(--ink-850);
+
+    border:
+        1px solid var(--ink-700);
+
+    border-radius: 12px;
+
+}
+
+
+.player-modal-art {
+
+    height: 190px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--ink-800);
+
+}
+
+
+.modal-player-avatar {
+
+    width: 110px;
+
+    height: 110px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--ink-900);
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            .5
+        );
+
+    font-family: var(--font-display);
+
+    font-size: 1.8rem;
+
+}
+
+
+.player-modal-content {
+
+    padding: 28px;
+
+    position: relative;
+
+}
+
+
+.modal-player-game {
+
+    color: var(--text-lo);
+
+    font-family: var(--font-mono);
+
+}
+
+
+.player-info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+
+}
+
+
+.player-info-grid div {
+
+    background: var(--ink-900);
+
+    border:
+        1px solid var(--ink-700);
+
+    padding: 13px;
+
+    border-radius: 7px;
+
+}
+
+
+.player-info-grid span {
+
+    display: block;
+
+    color: var(--text-lo);
+
+    font-family: var(--font-mono);
+
+    font-size: 0.6rem;
+
+    margin-bottom: 4px;
+
+}
+
+
+.player-info-grid strong {
+
+    font-size: 0.8rem;
+
+}
+
+
+@media (max-width: 1050px) {
+
+    .players-grid {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(0, 1fr)
+            );
+
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .players-grid {
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .players-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .player-info-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+/* =========================================================
+   PLAYER MODAL - FINAL TYPOGRAPHY FIX
+   Scoped only to the player modal
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   MODAL CONTENT
+--------------------------------------------------------- */
+
+#playerModal .player-modal-content {
+
+    font-family: inherit;
+
+    color: var(--text-hi);
+
+}
+
+
+/* ---------------------------------------------------------
+   PLAYER TYPE
+   PLAYER / TEAM CAPTAIN
+--------------------------------------------------------- */
+
+#playerModal #modalPlayerType {
+
+    display: block;
+
+    font-family: inherit;
+
+    font-size: 0.72rem !important;
+
+    line-height: 1.4;
+
+    letter-spacing: 2.5px;
+
+    text-transform: uppercase;
+
+    color: var(--text-lo);
+
+    margin-bottom: 8px;
+
+}
+
+
+/* ---------------------------------------------------------
+   PLAYER NAME
+--------------------------------------------------------- */
+
+#playerModal #modalPlayerName {
+
+    display: block;
+
+    font-family: inherit;
+
+    font-size: 2.6rem !important;
+
+    line-height: 1.05 !important;
+
+    font-weight: 500 !important;
+
+    letter-spacing: 0.5px;
+
+    color: var(--text-hi);
+
+    margin: 0 0 12px 0 !important;
+
+}
+
+
+/* ---------------------------------------------------------
+   GAME
+--------------------------------------------------------- */
+
+#playerModal #modalPlayerGame {
+
+    display: block;
+
+    font-family: inherit;
+
+    font-size: 1rem !important;
+
+    line-height: 1.5;
+
+    font-weight: 400;
+
+    color: var(--text-lo);
+
+    margin: 0 0 22px 0 !important;
+
+}
+
+
+/* ---------------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------------- */
+
+#playerModal #modalPlayerDescription {
+
+    display: block;
+
+    font-family: inherit;
+
+    font-size: 0.95rem !important;
+
+    line-height: 1.65 !important;
+
+    font-weight: 400;
+
+    color: var(--text-lo);
+
+    max-width: 72ch;
+
+    margin: 0 0 24px 0 !important;
+
+}
+
+
+/* ---------------------------------------------------------
+   INFORMATION GRID
+--------------------------------------------------------- */
+
+#playerModal .modal-info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-top: 8px;
+
+}
+
+
+/* ---------------------------------------------------------
+   INFORMATION BOX
+--------------------------------------------------------- */
+
+#playerModal .modal-info-grid > div {
+
+    min-width: 0;
+
+    padding: 14px 16px;
+
+    background:
+        rgba(10, 12, 18, 0.72);
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.10);
+
+    border-radius: 8px;
+
+}
+
+
+/* ---------------------------------------------------------
+   INFORMATION LABEL
+--------------------------------------------------------- */
+
+#playerModal .modal-info-grid span {
+
+    display: block;
+
+    font-family: inherit;
+
+    font-size: 0.63rem !important;
+
+    line-height: 1.4;
+
+    font-weight: 400;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: var(--text-lo);
+
+    margin-bottom: 7px;
+
+}
+
+
+/* ---------------------------------------------------------
+   INFORMATION VALUE
+--------------------------------------------------------- */
+
+#playerModal .modal-info-grid strong {
+
+    display: block;
+
+    font-family: inherit;
+
+    font-size: 0.88rem !important;
+
+    line-height: 1.4;
+
+    font-weight: 600;
+
+    color: var(--text-hi);
+
+    white-space: normal;
+
+    overflow-wrap: anywhere;
+
+}
+
+
+/* ---------------------------------------------------------
+   AVATAR
+--------------------------------------------------------- */
+
+#playerModal .modal-player-avatar {
+
+    font-family: inherit;
+
+    font-size: 2rem !important;
+
+    line-height: 1;
+
+    font-weight: 500;
+
+}
+
+
+/* ---------------------------------------------------------
+   CLOSE BUTTON
+--------------------------------------------------------- */
+
+#playerModal .modal-close {
+
+    font-family: inherit;
+
+    font-size: 0.78rem !important;
+
+    line-height: 1.2;
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    color: var(--text-hi);
+
+    background: transparent;
+
+    border: 1px solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: 6px;
+
+    padding: 10px 14px;
+
+}
+
+
+/* ---------------------------------------------------------
+   ACTION BUTTONS
+--------------------------------------------------------- */
+
+#playerModal .modal-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+}
+
+
+#playerModal .modal-actions .btn {
+
+    font-family: inherit;
+
+    font-size: 0.82rem !important;
+
+    line-height: 1.2;
+
+    font-weight: 600;
+
+    letter-spacing: 0.2px;
+
+}
+
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 700px) {
+
+    #playerModal #modalPlayerName {
+
+        font-size: 2rem !important;
+
+    }
+
+
+    #playerModal #modalPlayerDescription {
+
+        font-size: 0.88rem !important;
+
+    }
+
+
+    #playerModal .modal-info-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+    }
+
+
+    #playerModal .modal-info-grid > div {
+
+        padding: 11px 13px;
+
+    }
+
+
+    #playerModal .modal-actions {
+
+        flex-wrap: wrap;
+
+    }
+
+}
